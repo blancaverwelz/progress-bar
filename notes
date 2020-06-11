@@ -1,0 +1,77 @@
+
+//NOTES: HOW TO CREATE PROGRESS BAR
+
+/* OPTION 1: Progress bar using a set interval function
+
+- Create a function with a name "progressBar" with an
+argument of "seconds".
+- Then create a bar object and use a query selector method 
+to select the inner bar to be animated. (select the bar 
+element from the HTML)
+- Create current percentage value, initialized with 0.
+- Create an object that will update the style of the bar 
+at a certain interval which every amount of seconds we're 
+gonna run a function. (which is 'seconds' multiplied by mili-seconds)
+- inside the function we want to increase the percentage 
+value by 1 everytime.
+- Set the style of the width of the bar equals to the 
+percentage value + the percentage sign.
+- Lastly check if the value is  greater or equal than 100
+percent, if true clear interval.
+
+ACTUAL CODE BELOW:
+
+function progressBar(seconds) {
+    const bar = document.querySelector('.bar');
+    let barPercentage = 0;
+    const interval = setInterval(() => {
+        bar.style.width = barPercentage + '%';
+        barPercentage++;
+        if (barPercentage >= 100) {
+            clearInterval(interval);
+        }
+    }, (seconds * 1000)/ 100)
+}
+*/
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+
+// OPTION 2: Progress bar using CSS //
+
+/*
+- Create a function with a name "progressBar" with an
+argument of "seconds".
+- Then use a query selector method to select the inner bar
+to be animated. (select the bar element from the HTML)
+- Set the transition property of the bar equivalent to
+the value we're passing in for seconds. Using a string interpolation which allows to pass 
+variables inside the string and then add a transition 
+property to the bar element.
+- Set the width to 100 percent
+
+
+ACTUAL CODE BELOW:
+
+function progressBar(seconds){
+    const bar = document.querySelector('.bar');
+    bar.style.transition = `${seconds}s linear width`
+    bar.style.width = '100%';
+}
+*/
+
+/* Edit the below:
+using JavaScript with a setInterval function
+
+but you can simplify the script so much using css.
+
+
+setting the transition property to a value equivalent 
+to what we're passing in for seconds.
+
+using a string interpolation which allows to pass 
+variables inside the string and then add a transition 
+property to the bar element.
+*/
